@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="res" action="" method="post">
+        <fieldset>
+            <legend style="text-align:center;">STUDENT DETAILS </legend>
+            <label>NAME: </label><br>
+            <input type="text" name="uname" required placeholder="ENTER YOUR NAME "><br><br>
+
+            <label> PASSWORD : </label><br>
+            <input type="password" name="pwd" required placeholder="ENTER YOUR PASSWORD "><br><br>
+
+            <label>GENDER : </label><br>
+            <input type="radio" name="gen" value="MALE" required>MALE
+            <input type="radio" name="gen" value="FEMALE" required>FEMALE <br><br>
+
+            <label>DATE OF BIRTH : </label>
+            <input type="date" required placeholder="select"><br><br>
+
+            <label> HIGH STUDIES : </label><br>
+            <select name="hs" placeholder="SELECT YOUR ">
+                <optgroup label="1st GROUP ">
+                    <option>BIOLOGY </option>
+                </optgroup>
+
+                <optgroup label="2nd GROUP ">
+                    <option>COMPUTER SCIENCE </option>
+                </optgroup>
+
+                <optgroup label="3RD GROUP ">
+                    <option>COMMERCE WITH BUSINESS MATHS </option>
+                    <option> COMMERCE WITH COMPUTER APPLICATIONS </option>
+                </optgroup>>
+
+            </select><br><br>
+
+            <label>MOBILE NO : </label>
+            <input class="M" type="tel" pattern="[0-9]{10}" placeholder="10 DIGIT PHONE NO WITHOUT COUNTRY CODE "
+                name="ph" required><br><br>
+
+            <label>TELEPHONE : </label>
+            <input class="M" type="tel" pattern="[0-3]{3}-[0-4]{4}-[0-3]{3}" placeholder="123-1234-123 "
+                required><br><br>
+
+            <label>ADDRESS : </label>
+            <textarea name="ad" placeholder="ENTER YOUR PERMANENT ADDRESS ALONG WITH YOUR PINCODE "></textarea><br><br>
+
+
+
+            <input type="checkbox" value="Y" name="pass"> <label> REMEMBER PASSWORD </label><br><br>
+
+
+            <button type="submit" onclick="disp(res)"> SUBMIT </button>
+
+    </form>
+    <h3 id=""></h3>
+
+    <script>
+        function disp() {
+            const forms = document.getElementById("res");
+
+            const name = forms.elements["uname"].value;
+            const gender = forms.elements["gen"].value;
+            const pho = forms.elements["ph"].value;
+            const address = forms.elements["ad"].value;
+
+
+            document.write("THE NAME OF THE PERSON IS : " + name + "<br>");
+            document.write("THE GENDER OF THE PERSON IS : " + gender + "<br>");
+            document.write("THE PHONE NO OF THE PERSON IS : " + pho + "<br>");
+            document.write("THE ADDRESS OF THE PERSON IS : " + address + "<br>");
+
+
+
+
+        }
+
+    </script>
+</body>
+</html>
