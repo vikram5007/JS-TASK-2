@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <form id="res" action="" method="post">
         <fieldset>
             <legend style="text-align:center;">STUDENT DETAILS </legend>
-            <label>NAME: </label><br>
-            <input type="text" name="uname" required placeholder="ENTER YOUR NAME "><br><br>
+            <label>FIRST NAME: </label><br>
+            <input type="text" name="fname" required placeholder="ENTER YOUR FIRST NAME "><br><br>
+
+            <label>LAST NAME: </label><br>
+            <input type="text" name="lname" required placeholder="ENTER YOUR LAST NAME "><br><br>
 
             <label> PASSWORD : </label><br>
             <input type="password" name="pwd" required placeholder="ENTER YOUR PASSWORD "><br><br>
@@ -21,60 +26,64 @@
             <input type="radio" name="gen" value="FEMALE" required>FEMALE <br><br>
 
             <label>DATE OF BIRTH : </label>
-            <input type="date" required placeholder="select"><br><br>
+            <input type="date" name="age" required placeholder="select"><br><br>
 
-            <label> HIGH STUDIES : </label><br>
-            <select name="hs" placeholder="SELECT YOUR ">
-                <optgroup label="1st GROUP ">
-                    <option>BIOLOGY </option>
-                </optgroup>
+            <button type="button" onclick="display()"> CLICK HERE </button>
 
-                <optgroup label="2nd GROUP ">
-                    <option>COMPUTER SCIENCE </option>
-                </optgroup>
-
-                <optgroup label="3RD GROUP ">
-                    <option>COMMERCE WITH BUSINESS MATHS </option>
-                    <option> COMMERCE WITH COMPUTER APPLICATIONS </option>
-                </optgroup>>
-
-            </select><br><br>
-
-            <label>MOBILE NO : </label>
-            <input class="M" type="tel" pattern="[0-9]{10}" placeholder="10 DIGIT PHONE NO WITHOUT COUNTRY CODE "
-                name="ph" required><br><br>
-
-            <label>TELEPHONE : </label>
-            <input class="M" type="tel" pattern="[0-3]{3}-[0-4]{4}-[0-3]{3}" placeholder="123-1234-123 "
-                required><br><br>
-
-            <label>ADDRESS : </label>
-            <textarea name="ad" placeholder="ENTER YOUR PERMANENT ADDRESS ALONG WITH YOUR PINCODE "></textarea><br><br>
-
-
-
-            <input type="checkbox" value="Y" name="pass"> <label> REMEMBER PASSWORD </label><br><br>
-
-
-            <button type="submit" onclick="disp(res)"> SUBMIT </button>
-
+        </fieldset>
     </form>
     <h3 id=""></h3>
 
     <script>
-        function disp() {
+        function display() {
+
             const forms = document.getElementById("res");
 
-            const name = forms.elements["uname"].value;
+            const Fname = forms.elements["fname"].value;
+            const Lname = forms.elements["lname"].value;
             const gender = forms.elements["gen"].value;
-            const pho = forms.elements["ph"].value;
-            const address = forms.elements["ad"].value;
+            var age = forms.elements["age"].value;
 
 
-            document.write("THE NAME OF THE PERSON IS : " + name + "<br>");
-            document.write("THE GENDER OF THE PERSON IS : " + gender + "<br>");
-            document.write("THE PHONE NO OF THE PERSON IS : " + pho + "<br>");
-            document.write("THE ADDRESS OF THE PERSON IS : " + address + "<br>");
+
+            var pwd_expression = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])/;
+            var letters = /^[A-Za-z]+$/;
+            var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+            if (Fname == "" || Lname == "") {
+                alert("ENTER NAME WITHOUT BLANK SPACES ! ");
+            }
+            else if (!letters.test(Fname)) {
+                alert('NAME FIELD REQUIRED ONLY ALPHABET CHARACTERS ! ');
+            }
+            else if (gender == "") {
+                alert("GENDER IS NOT SELECTED");
+            }
+            else {
+
+                alert("SEMMA DA MAPLA");
+
+                document.write("THE FIRST NAME OF THE PERSON IS : " + Fname + "<br>");
+                document.write("THE LAST NAME OF THE PERSON IS : " + Lname + "<br>");
+                document.write("THE GENDER OF THE PERSON IS : " + gender + "<br>");
+
+
+
+                var dob = new Date(age);
+                var dif = Date.now() - dob.getTime();
+                var daydiff = (dif / 31536000000).toFixed(0);
+                document.write(daydiff+"<br>");
+                
+                if(daydiff>18){
+                    document.write(Fname +"  "+" IS ELIGIBLE TO VOTE THIS YEAR ");
+                }
+                else{
+                    document.write(Fname+" "+ " IS NOT ELIGIBLE TO VOTE THIS YEAR ")
+                }
+
+
+            }
+
 
 
 
@@ -83,4 +92,5 @@
 
     </script>
 </body>
+
 </html>
