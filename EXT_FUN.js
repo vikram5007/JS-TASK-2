@@ -83,3 +83,9 @@ function forof() {   // FOR OF LOOP
 
 }
 
+function sorter(){
+var sorted=fri_names.sort();
+alert(sorted);
+
+}
+
